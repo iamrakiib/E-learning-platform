@@ -169,7 +169,7 @@ export default function LearnPage({ params }: LearnPageProps) {
             </video>
           ) : (
             <div className="video-placeholder">
-              <div className="icon">🎬</div>
+              <div className="icon">VIDEO</div>
               <h3>Video Content</h3>
               <p>Video will be available soon</p>
             </div>
@@ -180,9 +180,9 @@ export default function LearnPage({ params }: LearnPageProps) {
           <h1>{currentLesson.title}</h1>
           
           <div className="lesson-meta-bar">
-            <span>📚 Lesson {currentIndex + 1} of {course.lessons?.length}</span>
-            <span>⏱️ {currentLesson.duration} minutes</span>
-            {isComplete && <span style={{ color: '#10b981' }}>✓ Completed</span>}
+            <span>Lesson {currentIndex + 1} of {course.lessons?.length}</span>
+            <span>{currentLesson.duration} minutes</span>
+            {isComplete && <span style={{ color: '#10b981' }}>Completed</span>}
           </div>
 
           {currentLesson.description && (

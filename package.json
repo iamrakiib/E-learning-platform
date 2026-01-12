@@ -16,6 +16,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@nestjs/axios": "^3.0.0",
     "@nestjs/cache-manager": "^3.0.1",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.1.1",
@@ -38,12 +39,12 @@
     "nest-winston": "^1.9.4",
     "passport-jwt": "^4.0.1",
     "pg": "^8.16.3",
+    "pusher": "^5.3.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.0",
     "uuid": "^13.0.0",
-    "winston": "^3.11.0",
-    "@nestjs/axios": "^3.0.0"
+    "winston": "^3.11.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",

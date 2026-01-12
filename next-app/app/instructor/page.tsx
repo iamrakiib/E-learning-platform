@@ -177,7 +177,7 @@ export default function InstructorDashboardPage() {
         <div className="hero-content">
           <div className="hero-text">
             <span className="greeting-badge instructor-badge">
-              <span className="wave-emoji">📚</span> {greeting}, Instructor
+              <span className="wave-emoji">Hi,</span> {greeting}, Instructor
             </span>
             <h1 className="hero-title">
               <span className="gradient-text-instructor">{user.name || user.email?.split('@')[0]}</span>
@@ -192,7 +192,7 @@ export default function InstructorDashboardPage() {
                 {(user.name || user.email || 'I').charAt(0).toUpperCase()}
               </div>
             </div>
-            <Badge variant="primary" className="role-badge-animated">📖 Instructor</Badge>
+            <Badge variant="primary" className="role-badge-animated">Instructor</Badge>
           </div>
         </div>
         <div className="hero-actions">
@@ -214,7 +214,7 @@ export default function InstructorDashboardPage() {
           <div className="stat-card-animated stat-courses" style={{ '--delay': '0.1s' } as React.CSSProperties}>
             <div className="stat-card-inner">
               <div className="stat-icon-wrapper blue">
-                <span className="stat-icon">📚</span>
+                <span className="stat-icon">CRS</span>
               </div>
               <div className="stat-content">
                 <span className="stat-number">{dashboardData?.totalCourses || courses.length}</span>
@@ -233,7 +233,7 @@ export default function InstructorDashboardPage() {
           <div className="stat-card-animated stat-students" style={{ '--delay': '0.2s' } as React.CSSProperties}>
             <div className="stat-card-inner">
               <div className="stat-icon-wrapper green">
-                <span className="stat-icon">👥</span>
+                <span className="stat-icon">STU</span>
               </div>
               <div className="stat-content">
                 <span className="stat-number">{dashboardData?.totalStudents || 0}</span>
@@ -248,7 +248,7 @@ export default function InstructorDashboardPage() {
           <div className="stat-card-animated stat-revenue" style={{ '--delay': '0.3s' } as React.CSSProperties}>
             <div className="stat-card-inner">
               <div className="stat-icon-wrapper purple">
-                <span className="stat-icon">💰</span>
+                <span className="stat-icon">$</span>
               </div>
               <div className="stat-content">
                 <span className="stat-number">${Number(dashboardData?.totalRevenue || 0).toFixed(0)}</span>
@@ -263,7 +263,7 @@ export default function InstructorDashboardPage() {
           <div className="stat-card-animated stat-rating" style={{ '--delay': '0.4s' } as React.CSSProperties}>
             <div className="stat-card-inner">
               <div className="stat-icon-wrapper orange">
-                <span className="stat-icon">⭐</span>
+                <span className="stat-icon">★</span>
               </div>
               <div className="stat-content">
                 <span className="stat-number">{Number(dashboardData?.averageRating || 0).toFixed(1)}</span>
@@ -281,7 +281,7 @@ export default function InstructorDashboardPage() {
       <section className="performance-section animate-slide-up" style={{ '--delay': '0.3s' } as React.CSSProperties}>
         <div className="section-header-fancy">
           <h2>
-            <span className="section-icon">📈</span>
+            <span className="section-icon">||</span>
             Performance Overview
           </h2>
         </div>
@@ -333,7 +333,7 @@ export default function InstructorDashboardPage() {
         <div className="section-header-fancy">
           <div className="section-title-group">
             <h2>
-              <span className="section-icon">📖</span>
+              <span className="section-icon">=</span>
               My Courses
             </h2>
             <div className="view-toggle">
@@ -363,7 +363,7 @@ export default function InstructorDashboardPage() {
           <EmptyState
             title="No courses yet"
             description="Create your first course and start teaching"
-            icon="📚"
+            icon="CRS"
             action={
               <button onClick={() => setShowCreateModal(true)} className="button button-primary">
                 Create Course
@@ -385,9 +385,9 @@ export default function InstructorDashboardPage() {
                   </div>
                   <div className="course-thumbnail-instructor">
                     <span>
-                      {course.category === 'programming' ? '💻' :
-                       course.category === 'design' ? '🎨' :
-                       course.category === 'business' ? '💼' : '📖'}
+                      {course.category === 'programming' ? 'PRG' :
+                       course.category === 'design' ? 'DES' :
+                       course.category === 'business' ? 'BUS' : 'CRS'}
                     </span>
                   </div>
                 </div>
@@ -399,15 +399,15 @@ export default function InstructorDashboardPage() {
                   
                   <div className="course-stats-row">
                     <div className="course-stat">
-                      <span className="stat-icon-small">👥</span>
+                      <span className="stat-icon-small">STU</span>
                       <span>{course.enrollmentCount || 0}</span>
                     </div>
                     <div className="course-stat">
-                      <span className="stat-icon-small">⭐</span>
+                      <span className="stat-icon-small">★</span>
                       <span>{Number(course.averageRating || 0).toFixed(1)}</span>
                     </div>
                     <div className="course-stat">
-                      <span className="stat-icon-small">💰</span>
+                      <span className="stat-icon-small">$</span>
                       <span>${Number(course.price).toFixed(0)}</span>
                     </div>
                   </div>
@@ -453,7 +453,7 @@ export default function InstructorDashboardPage() {
                     <td>
                       <div className="course-info-cell">
                         <span className="course-emoji-small">
-                          {course.category === 'programming' ? '💻' : '📖'}
+                          {course.category === 'programming' ? 'PRG' : 'CRS'}
                         </span>
                         <span className="course-title-cell">{course.title}</span>
                       </div>
@@ -462,7 +462,7 @@ export default function InstructorDashboardPage() {
                     <td>{course.enrollmentCount || 0}</td>
                     <td>
                       <span className="rating-cell">
-                        ⭐ {Number(course.averageRating || 0).toFixed(1)}
+                        ★ {Number(course.averageRating || 0).toFixed(1)}
                       </span>
                     </td>
                     <td>${Number(course.price).toFixed(0)}</td>
@@ -502,7 +502,7 @@ export default function InstructorDashboardPage() {
       <section className="quick-actions-section animate-slide-up" style={{ '--delay': '0.5s' } as React.CSSProperties}>
         <div className="section-header-fancy">
           <h2>
-            <span className="section-icon">⚡</span>
+            <span className="section-icon">::</span>
             Quick Actions
           </h2>
         </div>
@@ -513,12 +513,12 @@ export default function InstructorDashboardPage() {
             <span className="action-arrow">→</span>
           </button>
           <Link href="/profile" className="quick-action-card-fancy instructor">
-            <span className="action-icon-fancy">👤</span>
+            <span className="action-icon-fancy">P</span>
             <span className="action-text">My Profile</span>
             <span className="action-arrow">→</span>
           </Link>
           <button className="quick-action-card-fancy instructor" onClick={loadDashboard}>
-            <span className="action-icon-fancy">🔄</span>
+            <span className="action-icon-fancy">R</span>
             <span className="action-text">Refresh</span>
             <span className="action-arrow">→</span>
           </button>

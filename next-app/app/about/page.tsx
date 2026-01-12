@@ -34,17 +34,17 @@ export default function AboutPage() {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div className="grid grid-3">
             <div className="about-value-card">
-              <div className="about-value-icon">🎯</div>
+              <div className="about-value-icon">1</div>
               <h3>Our Mission</h3>
               <p>Empower learners worldwide with accessible, high-quality education that transforms lives and careers.</p>
             </div>
             <div className="about-value-card">
-              <div className="about-value-icon">💡</div>
+              <div className="about-value-icon">2</div>
               <h3>Our Vision</h3>
               <p>Create a global community of lifelong learners and expert educators connected through knowledge.</p>
             </div>
             <div className="about-value-card">
-              <div className="about-value-icon">✨</div>
+              <div className="about-value-icon">3</div>
               <h3>Our Values</h3>
               <p>Excellence, accessibility, innovation, and unwavering commitment to student success.</p>
             </div>

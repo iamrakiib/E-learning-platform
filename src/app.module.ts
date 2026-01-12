@@ -14,6 +14,7 @@ import { HealthModule } from './health/health.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { ChatbotModule } from './chatbot/chatbot.module';
 import { VideoStreamModule } from './video-stream/video-stream.module';
+import { PusherModule } from './pusher/pusher.module';
 
 @Module({
   imports: [
@@ -54,6 +55,7 @@ import { VideoStreamModule } from './video-stream/video-stream.module';
     NotificationsModule,
     ChatbotModule,
     VideoStreamModule,
+    PusherModule,
   ],
   providers: [
     {

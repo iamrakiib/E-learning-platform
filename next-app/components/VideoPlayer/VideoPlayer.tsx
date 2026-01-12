@@ -320,7 +320,7 @@ export default function VideoPlayer({
   if (error) {
     return (
       <div className={styles.errorContainer}>
-        <span className={styles.errorIcon}>⚠️</span>
+        <span className={styles.errorIcon}>!</span>
         <p>{error}</p>
       </div>
     );
@@ -329,7 +329,7 @@ export default function VideoPlayer({
   if (!video && !src) {
     return (
       <div className={styles.noVideoContainer}>
-        <span className={styles.noVideoIcon}>🎬</span>
+        <span className={styles.noVideoIcon}>VID</span>
         <p>No video available</p>
       </div>
     );

@@ -1,0 +1,567 @@
+.main {
+  min-height: calc(100vh - 80px);
+  background: #f8fafc;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  padding: 3rem 2rem 4rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.shape1,
+.shape2 {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 112, 243, 0.1);
+}
+
+.shape1 {
+  width: 400px;
+  height: 400px;
+  top: -200px;
+  right: 100px;
+}
+
+.shape2 {
+  width: 300px;
+  height: 300px;
+  bottom: -150px;
+  left: -100px;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 2rem 0;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: white;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.meta {
+  margin-bottom: 1.5rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.rating span:first-of-type {
+  font-weight: 700;
+  color: white;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+.instructor {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.instructorAvatar {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #0070f3 0%, #7928ca 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.instructorLabel {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.instructorName {
+  display: block;
+  font-weight: 600;
+  color: white;
+}
+
+/* Enrollment Card */
+.enrollCard {
+  position: relative;
+  z-index: 1;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  height: fit-content;
+}
+
+.enrollCardImage {
+  height: 180px;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholderIcon {
+  font-size: 5rem;
+}
+
+.enrollCardContent {
+  padding: 1.5rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+}
+
+.enrollBtn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #0070f3 0%, #7928ca 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.enrollBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 112, 243, 0.3);
+}
+
+.enrollBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.features li {
+  padding: 0.75rem 0;
+  color: #666;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.features li:last-child {
+  border-bottom: none;
+}
+
+/* Content Section */
+.content {
+  padding: 3rem 2rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0;
+}
+
+.tab {
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tab:hover {
+  color: #0070f3;
+}
+
+.tab.active {
+  color: #0070f3;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #0070f3;
+}
+
+/* Tab Content */
+.tabContent {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.overview h2,
+.curriculum h2,
+.reviews h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+}
+
+.overview h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 2rem 0 1rem;
+}
+
+.overview p {
+  color: #666;
+  line-height: 1.8;
+}
+
+.learningPoints {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.learningPoints li {
+  color: #444;
+  padding: 0.5rem 0;
+}
+
+/* Curriculum */
+.curriculumInfo {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.noLessons {
+  color: #888;
+  text-align: center;
+  padding: 2rem;
+}
+
+.lessonsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lessonItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.lessonItem:hover {
+  background: #f0f4ff;
+}
+
+.lessonNumber {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #0070f3 0%, #7928ca 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.lessonInfo {
+  flex: 1;
+}
+
+.lessonInfo h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0 0 0.25rem;
+}
+
+.lessonInfo p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.lessonDuration {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.lockIcon {
+  opacity: 0.5;
+}
+
+/* Reviews */
+.reviewsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.writeReviewBtn {
+  background: #0070f3;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.writeReviewBtn:hover {
+  background: #0060df;
+}
+
+.reviewForm {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.ratingInput {
+  margin-bottom: 1rem;
+}
+
+.ratingInput label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.stars button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
+}
+
+.stars button.starActive,
+.stars button:hover {
+  opacity: 1;
+}
+
+.reviewForm textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  font-size: 1rem;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.reviewForm textarea:focus {
+  outline: none;
+  border-color: #0070f3;
+}
+
+.submitReviewBtn {
+  background: linear-gradient(135deg, #0070f3 0%, #7928ca 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.submitReviewBtn:disabled {
+  opacity: 0.7;
+}
+
+.noReviews {
+  color: #888;
+  text-align: center;
+  padding: 2rem;
+}
+
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.reviewItem {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.reviewItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.reviewerAvatar {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #0070f3;
+}
+
+.reviewHeader h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.reviewRating {
+  font-size: 0.85rem;
+}
+
+.reviewDate {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.reviewText {
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+
+  .enrollCard {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .learningPoints {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs {
+    overflow-x: auto;
+  }
+
+  .tab {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .tabContent {
+    padding: 1.5rem;
+  }
+
+  .reviewsHeader {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+}

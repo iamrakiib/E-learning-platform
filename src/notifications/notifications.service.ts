@@ -3,12 +3,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Notification, NotificationType } from '../users/notification.entity';
 import { User } from '../users/user.entity';
+import { PusherService } from '../pusher/pusher.service';
 
 @Injectable()
 export class NotificationsService {
   constructor(
     @InjectRepository(Notification)
     private notificationRepository: Repository<Notification>,
+    private pusherService: PusherService,
   ) {}
 
   // Create a new notification
@@ -93,12 +95,22 @@ export class NotificationsService {
 
   // Notify instructor when student enrolls
   async notifyEnrollment(instructorId: number, studentName: string, courseTitle: string) {
-    return this.create(
+    const notification = await this.create(
       { id: instructorId },
       NotificationType.ENROLLMENT,
       'New Student Enrolled!',
       `${studentName} has enrolled in your course "${courseTitle}".`,
     );
+
+    // Send real-time notification via Pusher
+    await this.pusherService.notifyUser(instructorId, {
+      type: 'new-enrollment',
+      title: notification.title,
+      message: notification.message,
+      data: { studentName, courseTitle },
+    });
+
+    return notification;
   }
 
   // Notify instructor when course is approved
@@ -123,12 +135,22 @@ export class NotificationsService {
 
   // Notify instructor when new review is posted
   async notifyNewReview(instructorId: number, studentName: string, courseTitle: string, rating: number) {
-    return this.create(
+    const notification = await this.create(
       { id: instructorId },
       NotificationType.REVIEW,
       'New Course Review',
       `${studentName} left a ${rating}-star review on your course "${courseTitle}".`,
     );
+
+    // Send real-time notification via Pusher
+    await this.pusherService.notifyUser(instructorId, {
+      type: 'new-review',
+      title: notification.title,
+      message: notification.message,
+      data: { studentName, courseTitle, rating },
+    });
+
+    return notification;
   }
 
   // Notify student on progress milestone

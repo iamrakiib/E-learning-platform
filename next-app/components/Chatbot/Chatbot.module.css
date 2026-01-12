@@ -6,40 +6,65 @@
 }
 
 .toggleButton {
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0056d2, #003d99);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: none;
   color: white;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0, 86, 210, 0.4);
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4), 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.toggleButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
 }
 
 .toggleButton:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(0, 86, 210, 0.5);
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5), 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toggleButton:hover::before {
+  opacity: 1;
+}
+
+.toggleButton svg {
+  position: relative;
+  z-index: 1;
 }
 
 .chatWindow {
   position: absolute;
-  bottom: 70px;
+  bottom: 75px;
   right: 0;
-  width: 400px;
+  width: 420px;
   max-width: calc(100vw - 48px);
-  height: 550px;
+  height: 580px;
   max-height: calc(100vh - 150px);
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  animation: slideUp 0.3s ease;
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .chatWindow.minimized {
@@ -61,24 +86,49 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
-  background: linear-gradient(135deg, #0056d2, #003d99);
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.chatHeader::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
 }
 
 .headerInfo h3 {
   margin: 0;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 1;
 }
 
 .contextBadge {
   display: inline-block;
   background: rgba(255, 255, 255, 0.2);
-  padding: 2px 8px;
-  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  padding: 4px 10px;
+  border-radius: 20px;
   font-size: 11px;
-  margin-top: 4px;
+  margin-top: 6px;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
 }
 
 .headerActions {
@@ -87,40 +137,48 @@
 }
 
 .headerActions button {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
   border: none;
   color: white;
-  padding: 6px;
-  border-radius: 6px;
+  padding: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .headerActions button:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
 }
 
 .sessionsPanel {
   position: absolute;
-  top: 60px;
-  left: 0;
-  right: 0;
+  top: 65px;
+  left: 10px;
+  right: 10px;
   background: #fff;
-  border-bottom: 1px solid #e5e5e5;
-  max-height: 200px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.15);
+  max-height: 220px;
   overflow-y: auto;
   z-index: 10;
-  padding: 12px;
+  padding: 16px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
 }
 
 .sessionsPanel h4 {
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
   font-size: 12px;
-  color: #666;
+  color: #667eea;
   text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .sessionsPanel ul {
@@ -132,19 +190,22 @@
 .sessionsPanel li {
   display: flex;
   align-items: center;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
   position: relative;
+  margin-bottom: 4px;
 }
 
 .sessionsPanel li:hover {
-  background: #f5f5f5;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+  transform: translateX(4px);
 }
 
 .sessionsPanel li.active {
-  background: #e8f0fe;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+  border-left: 3px solid #667eea;
 }
 
 .sessionTitle {
@@ -153,12 +214,17 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 500;
+  color: #333;
 }
 
 .sessionDate {
-  font-size: 11px;
+  font-size: 10px;
   color: #999;
-  margin-left: 8px;
+  margin-left: 10px;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 2px 8px;
+  border-radius: 10px;
 }
 
 .deleteSession {
@@ -167,9 +233,10 @@
   border: none;
   color: #999;
   cursor: pointer;
-  font-size: 18px;
-  padding: 0 4px;
-  transition: opacity 0.2s;
+  font-size: 16px;
+  padding: 4px 8px;
+  transition: all 0.2s ease;
+  border-radius: 6px;
 }
 
 .sessionsPanel li:hover .deleteSession {
@@ -177,13 +244,17 @@
 }
 
 .deleteSession:hover {
-  color: #e53935;
+  color: #fff;
+  background: linear-gradient(135deg, #e53935, #c62828);
 }
 
 .noSessions {
   color: #999;
   font-size: 13px;
   text-align: center;
+  padding: 20px;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 12px;
   padding: 20px;
 }
 
@@ -198,23 +269,40 @@
 
 .welcomeMessage {
   text-align: center;
-  padding: 40px 20px;
+  padding: 50px 24px;
 }
 
 .welcomeIcon {
-  font-size: 48px;
-  margin-bottom: 16px;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .welcomeMessage h4 {
-  margin: 0 0 8px 0;
-  color: #333;
+  margin: 0 0 10px 0;
+  color: #1e293b;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .welcomeMessage p {
-  margin: 0 0 20px 0;
-  color: #666;
+  margin: 0 0 24px 0;
+  color: #64748b;
   font-size: 14px;
+  line-height: 1.6;
 }
 
 .suggestions {
@@ -225,20 +313,23 @@
 }
 
 .suggestions button {
-  background: #f0f4ff;
-  border: 1px solid #d0deff;
-  color: #0056d2;
-  padding: 8px 12px;
-  border-radius: 20px;
-  font-size: 12px;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  color: #667eea;
+  padding: 10px 16px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .suggestions button:hover {
-  background: #0056d2;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  border-color: #0056d2;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .message {
@@ -266,26 +357,36 @@
 
 .botIcon {
   flex-shrink: 0;
-  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
 }
 
 .messageText {
-  padding: 12px 16px;
-  border-radius: 16px;
+  padding: 14px 18px;
+  border-radius: 18px;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .message.user .messageText {
-  background: linear-gradient(135deg, #0056d2, #003d99);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border-bottom-right-radius: 4px;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
 }
 
 .message.assistant .messageText {
-  background: #f5f5f5;
-  color: #333;
+  background: #f1f5f9;
+  color: #334155;
   border-bottom-left-radius: 4px;
+  border: 1px solid #e2e8f0;
 }
 
 .messageText p {
@@ -305,17 +406,18 @@
 
 .typingIndicator {
   display: flex;
-  gap: 4px;
-  padding: 12px 16px;
-  background: #f5f5f5;
-  border-radius: 16px;
+  gap: 5px;
+  padding: 14px 18px;
+  background: #f1f5f9;
+  border-radius: 18px;
   border-bottom-left-radius: 4px;
+  border: 1px solid #e2e8f0;
 }
 
 .typingIndicator span {
   width: 8px;
   height: 8px;
-  background: #999;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 50%;
   animation: bounce 1.4s infinite ease-in-out both;
 }
@@ -338,28 +440,32 @@
 }
 
 .errorMessage {
-  background: #ffeaea;
-  color: #d32f2f;
-  padding: 10px 14px;
-  border-radius: 8px;
+  background: linear-gradient(135deg, #fff5f5, #fee2e2);
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 12px;
   font-size: 13px;
   align-self: center;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.1);
 }
 
 .inputContainer {
-  padding: 16px;
-  border-top: 1px solid #e5e5e5;
-  background: #fafafa;
+  padding: 18px 20px;
+  border-top: 1px solid #e2e8f0;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
 }
 
 .unconfiguredWarning {
-  background: #fff3cd;
-  color: #856404;
-  padding: 8px 12px;
-  border-radius: 8px;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #92400e;
+  padding: 10px 14px;
+  border-radius: 12px;
   font-size: 11px;
   margin-bottom: 12px;
   text-align: center;
+  border: 1px solid rgba(146, 64, 14, 0.2);
+  font-weight: 500;
 }
 
 .inputWrapper {
@@ -370,44 +476,48 @@
 
 .inputWrapper textarea {
   flex: 1;
-  padding: 12px 16px;
-  border: 1px solid #e0e0e0;
-  border-radius: 24px;
+  padding: 14px 18px;
+  border: 2px solid #e2e8f0;
+  border-radius: 28px;
   font-size: 14px;
   resize: none;
   max-height: 120px;
   outline: none;
-  transition: border-color 0.2s;
+  transition: all 0.3s ease;
   font-family: inherit;
+  background: white;
 }
 
 .inputWrapper textarea:focus {
-  border-color: #0056d2;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .sendButton {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: #0056d2;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: none;
   color: white;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .sendButton:hover:not(:disabled) {
-  background: #003d99;
-  transform: scale(1.05);
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
 }
 
 .sendButton:disabled {
-  background: #ccc;
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 /* Mobile Responsive */

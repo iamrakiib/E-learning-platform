@@ -101,11 +101,11 @@ export default function ProfilePage() {
   const getRoleConfig = (role: string) => {
     switch (role) {
       case 'admin':
-        return { color: 'danger', icon: '🛡️', gradient: 'admin', label: 'Administrator' };
+        return { color: 'danger', icon: 'A', gradient: 'admin', label: 'Administrator' };
       case 'instructor':
-        return { color: 'primary', icon: '📚', gradient: 'instructor', label: 'Instructor' };
+        return { color: 'primary', icon: 'I', gradient: 'instructor', label: 'Instructor' };
       default:
-        return { color: 'success', icon: '🎓', gradient: 'student', label: 'Student' };
+        return { color: 'success', icon: 'S', gradient: 'student', label: 'Student' };
     }
   };
 
@@ -239,10 +239,10 @@ export default function ProfilePage() {
               onClick={() => setActiveTab(tab)}
             >
               <span className="tab-icon">
-                {tab === 'overview' && '📊'}
-                {tab === 'courses' && '📚'}
-                {tab === 'achievements' && '🏆'}
-                {tab === 'settings' && '⚙️'}
+                {tab === 'overview' && 'OV'}
+                {tab === 'courses' && 'CRS'}
+                {tab === 'achievements' && 'ACH'}
+                {tab === 'settings' && 'SET'}
               </span>
               <span className="tab-text">{tab.charAt(0).toUpperCase() + tab.slice(1)}</span>
             </button>
@@ -258,33 +258,33 @@ export default function ProfilePage() {
             {/* Stats Grid */}
             <section className="profile-stats-section">
               <h2 className="section-title-fancy">
-                <span className="section-icon">📈</span>
+                <span className="section-icon">||</span>
                 Your Statistics
               </h2>
               <div className="profile-stats-grid">
                 <div className="profile-stat-card" style={{ '--delay': '0.1s' } as React.CSSProperties}>
-                  <div className="stat-icon-fancy blue">📚</div>
+                  <div className="stat-icon-fancy blue">CRS</div>
                   <div className="stat-details">
                     <span className="stat-value-fancy">{enrollments.length}</span>
                     <span className="stat-label-fancy">Enrolled Courses</span>
                   </div>
                 </div>
                 <div className="profile-stat-card" style={{ '--delay': '0.2s' } as React.CSSProperties}>
-                  <div className="stat-icon-fancy green">✅</div>
+                  <div className="stat-icon-fancy green">OK</div>
                   <div className="stat-details">
                     <span className="stat-value-fancy">{stats.completed}</span>
                     <span className="stat-label-fancy">Completed</span>
                   </div>
                 </div>
                 <div className="profile-stat-card" style={{ '--delay': '0.3s' } as React.CSSProperties}>
-                  <div className="stat-icon-fancy orange">🔄</div>
+                  <div className="stat-icon-fancy orange">IP</div>
                   <div className="stat-details">
                     <span className="stat-value-fancy">{stats.inProgress}</span>
                     <span className="stat-label-fancy">In Progress</span>
                   </div>
                 </div>
                 <div className="profile-stat-card" style={{ '--delay': '0.4s' } as React.CSSProperties}>
-                  <div className="stat-icon-fancy purple">🎓</div>
+                  <div className="stat-icon-fancy purple">CRT</div>
                   <div className="stat-details">
                     <span className="stat-value-fancy">{stats.completed}</span>
                     <span className="stat-label-fancy">Certificates</span>
@@ -296,7 +296,7 @@ export default function ProfilePage() {
             {/* Progress Ring */}
             <section className="progress-section">
               <h2 className="section-title-fancy">
-                <span className="section-icon">🎯</span>
+                <span className="section-icon">#</span>
                 Overall Progress
               </h2>
               <div className="progress-display">
@@ -348,34 +348,34 @@ export default function ProfilePage() {
             {/* Quick Actions */}
             <section className="profile-actions-section">
               <h2 className="section-title-fancy">
-                <span className="section-icon">⚡</span>
+                <span className="section-icon">::</span>
                 Quick Actions
               </h2>
               <div className="profile-actions-grid">
                 {user?.role === 'student' && (
                   <Link href="/dashboard" className="profile-action-card">
-                    <span className="action-icon-profile">📊</span>
+                    <span className="action-icon-profile">DB</span>
                     <span className="action-title-profile">Go to Dashboard</span>
                   </Link>
                 )}
                 {user?.role === 'instructor' && (
                   <Link href="/instructor" className="profile-action-card instructor">
-                    <span className="action-icon-profile">📚</span>
+                    <span className="action-icon-profile">INS</span>
                     <span className="action-title-profile">Instructor Panel</span>
                   </Link>
                 )}
                 {user?.role === 'admin' && (
                   <Link href="/admin" className="profile-action-card admin">
-                    <span className="action-icon-profile">🛡️</span>
+                    <span className="action-icon-profile">ADM</span>
                     <span className="action-title-profile">Admin Panel</span>
                   </Link>
                 )}
                 <Link href="/courses" className="profile-action-card">
-                  <span className="action-icon-profile">🔍</span>
+                  <span className="action-icon-profile">BR</span>
                   <span className="action-title-profile">Browse Courses</span>
                 </Link>
                 <button onClick={() => setActiveTab('settings')} className="profile-action-card">
-                  <span className="action-icon-profile">⚙️</span>
+                  <span className="action-icon-profile">SET</span>
                   <span className="action-title-profile">Settings</span>
                 </button>
               </div>
@@ -387,7 +387,7 @@ export default function ProfilePage() {
         {activeTab === 'courses' && (
           <div className="courses-content">
             <h2 className="section-title-fancy">
-              <span className="section-icon">📚</span>
+              <span className="section-icon">CRS</span>
               {user?.role === 'instructor' ? 'My Created Courses' : 'My Enrolled Courses'}
             </h2>
             
@@ -397,7 +397,7 @@ export default function ProfilePage() {
                   <div key={course.id} className="profile-course-card" style={{ '--delay': `${0.1 * index}s` } as React.CSSProperties}>
                     <div className="course-card-header-profile">
                       <span className="course-emoji-profile">
-                        {course.category === 'programming' ? '💻' : '📖'}
+                        {course.category === 'programming' ? 'PRG' : 'CRS'}
                       </span>
                       <Badge variant={course.isActive ? 'success' : 'warning'}>
                         {course.isActive ? 'Published' : 'Draft'}
@@ -405,8 +405,8 @@ export default function ProfilePage() {
                     </div>
                     <h3>{course.title}</h3>
                     <div className="course-stats-profile">
-                      <span>👥 {course.enrollmentCount || 0} students</span>
-                      <span>⭐ {Number(course.averageRating || 0).toFixed(1)}</span>
+                      <span>{course.enrollmentCount || 0} students</span>
+                      <span>★ {Number(course.averageRating || 0).toFixed(1)}</span>
                     </div>
                     <Link href={`/courses/${course.id}`} className="course-link-profile">
                       View Course →
@@ -421,7 +421,7 @@ export default function ProfilePage() {
                 {enrollments.map((enrollment, index) => (
                   <div key={enrollment.id} className="profile-course-card" style={{ '--delay': `${0.1 * index}s` } as React.CSSProperties}>
                     <div className="course-card-header-profile">
-                      <span className="course-emoji-profile">📚</span>
+                      <span className="course-emoji-profile">CRS</span>
                       <Badge variant={enrollment.progress === 100 ? 'success' : 'secondary'}>
                         {enrollment.progress === 100 ? 'Completed' : `${enrollment.progress || 0}%`}
                       </Badge>
@@ -442,7 +442,7 @@ export default function ProfilePage() {
 
             {enrollments.length === 0 && instructorCourses.length === 0 && (
               <div className="empty-state-profile">
-                <span className="empty-icon">📚</span>
+                <span className="empty-icon">CRS</span>
                 <h3>No courses yet</h3>
                 <p>Start learning by enrolling in a course</p>
                 <Link href="/courses" className="button button-primary">
@@ -457,48 +457,48 @@ export default function ProfilePage() {
         {activeTab === 'achievements' && (
           <div className="achievements-content">
             <h2 className="section-title-fancy">
-              <span className="section-icon">🏆</span>
+              <span className="section-icon">ACH</span>
               Achievements
             </h2>
             <div className="achievements-grid">
               <div className={`achievement-card ${stats.completed >= 1 ? 'unlocked' : 'locked'}`}>
-                <span className="achievement-icon">🎯</span>
+                <span className="achievement-icon">1</span>
                 <h3>First Steps</h3>
                 <p>Complete your first course</p>
                 {stats.completed >= 1 ? (
-                  <span className="achievement-status unlocked">✓ Unlocked</span>
+                  <span className="achievement-status unlocked">Unlocked</span>
                 ) : (
-                  <span className="achievement-status locked">🔒 Locked</span>
+                  <span className="achievement-status locked">Locked</span>
                 )}
               </div>
               <div className={`achievement-card ${stats.completed >= 5 ? 'unlocked' : 'locked'}`}>
-                <span className="achievement-icon">📚</span>
+                <span className="achievement-icon">5</span>
                 <h3>Bookworm</h3>
                 <p>Complete 5 courses</p>
                 {stats.completed >= 5 ? (
-                  <span className="achievement-status unlocked">✓ Unlocked</span>
+                  <span className="achievement-status unlocked">Unlocked</span>
                 ) : (
-                  <span className="achievement-status locked">🔒 {stats.completed}/5</span>
+                  <span className="achievement-status locked">{stats.completed}/5</span>
                 )}
               </div>
               <div className={`achievement-card ${enrollments.length >= 10 ? 'unlocked' : 'locked'}`}>
-                <span className="achievement-icon">🎓</span>
+                <span className="achievement-icon">10</span>
                 <h3>Dedicated Learner</h3>
                 <p>Enroll in 10 courses</p>
                 {enrollments.length >= 10 ? (
-                  <span className="achievement-status unlocked">✓ Unlocked</span>
+                  <span className="achievement-status unlocked">Unlocked</span>
                 ) : (
-                  <span className="achievement-status locked">🔒 {enrollments.length}/10</span>
+                  <span className="achievement-status locked">{enrollments.length}/10</span>
                 )}
               </div>
               <div className={`achievement-card ${stats.totalProgress === 100 ? 'unlocked' : 'locked'}`}>
-                <span className="achievement-icon">⭐</span>
+                <span className="achievement-icon">★</span>
                 <h3>Perfectionist</h3>
                 <p>100% average progress</p>
                 {stats.totalProgress === 100 ? (
-                  <span className="achievement-status unlocked">✓ Unlocked</span>
+                  <span className="achievement-status unlocked">Unlocked</span>
                 ) : (
-                  <span className="achievement-status locked">🔒 {stats.totalProgress}%</span>
+                  <span className="achievement-status locked">{stats.totalProgress}%</span>
                 )}
               </div>
             </div>
@@ -510,7 +510,7 @@ export default function ProfilePage() {
           <div className="settings-content">
             <section className="settings-section">
               <h2 className="section-title-fancy">
-                <span className="section-icon">👤</span>
+                <span className="section-icon">USR</span>
                 Account Information
               </h2>
               <div className="settings-card">
@@ -537,7 +537,7 @@ export default function ProfilePage() {
 
             <section className="settings-section">
               <h2 className="section-title-fancy">
-                <span className="section-icon">🔒</span>
+                <span className="section-icon">SEC</span>
                 Security
               </h2>
               <div className="settings-card">
@@ -552,7 +552,7 @@ export default function ProfilePage() {
                     onClick={() => setShowPasswordForm(true)}
                     className="btn-change-password"
                   >
-                    <span>🔑</span> Change Password
+                    <span>KEY</span> Change Password
                   </button>
                 ) : (
                   <form onSubmit={handlePasswordChange} className="password-form">

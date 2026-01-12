@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
+import NotificationBell from './NotificationBell';
 
 interface NavLink {
   href: string;
@@ -44,7 +45,7 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container">
         <Link href="/" className="navbar-logo">
-          <span className="navbar-logo-icon">🎓</span>
+          <span className="navbar-logo-icon">E</span>
           <span className="navbar-logo-text">Aurora Learn</span>
         </Link>
 
@@ -78,6 +79,9 @@ export default function Navbar() {
               >
                 Dashboard
               </Link>
+
+              {/* Notification Bell */}
+              <NotificationBell />
               
               {/* User dropdown */}
               <div className="user-dropdown" ref={dropdownRef}>
@@ -105,14 +109,14 @@ export default function Navbar() {
                       className="dropdown-item"
                       onClick={() => setShowDropdown(false)}
                     >
-                      👤 My Profile
+                      My Profile
                     </Link>
                     <Link 
                       href="/dashboard" 
                       className="dropdown-item"
                       onClick={() => setShowDropdown(false)}
                     >
-                      📊 Dashboard
+                      Dashboard
                     </Link>
                     {user.role === 'instructor' && (
                       <Link 
@@ -120,7 +124,7 @@ export default function Navbar() {
                         className="dropdown-item"
                         onClick={() => setShowDropdown(false)}
                       >
-                        📚 Instructor Dashboard
+                        Instructor Panel
                       </Link>
                     )}
                     {user.role === 'admin' && (
@@ -129,7 +133,7 @@ export default function Navbar() {
                         className="dropdown-item"
                         onClick={() => setShowDropdown(false)}
                       >
-                        ⚙️ Admin Panel
+                        Admin Panel
                       </Link>
                     )}
                     <div className="dropdown-divider"></div>
@@ -137,7 +141,7 @@ export default function Navbar() {
                       className="dropdown-item dropdown-logout"
                       onClick={handleLogout}
                     >
-                      🚪 Logout
+                      Sign Out
                     </button>
                   </div>
                 )}

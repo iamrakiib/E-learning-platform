@@ -29,7 +29,7 @@ interface ErrorMessageProps {
 export function ErrorMessage({ message, onRetry }: ErrorMessageProps) {
   return (
     <div className="error-container">
-      <div className="error-icon">⚠️</div>
+      <div className="error-icon">!</div>
       <p className="error-message">{message}</p>
       {onRetry && (
         <button className="button secondary" onClick={onRetry}>

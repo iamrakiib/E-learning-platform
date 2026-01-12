@@ -262,7 +262,7 @@ export default function AdminDashboardPage() {
         <div className="hero-content">
           <div className="hero-text">
             <span className="greeting-badge admin-badge">
-              <span className="wave-emoji">🛡️</span> {greeting}, Administrator
+              <span className="wave-emoji">Hi,</span> {greeting}, Administrator
             </span>
             <h1 className="hero-title">
               <span className="gradient-text-admin">{user.name || user.email?.split('@')[0]}</span>
@@ -277,7 +277,7 @@ export default function AdminDashboardPage() {
                 {(user.name || user.email || 'A').charAt(0).toUpperCase()}
               </div>
             </div>
-            <Badge variant="danger" className="role-badge-animated">⚡ Admin</Badge>
+            <Badge variant="danger" className="role-badge-animated">Admin</Badge>
           </div>
         </div>
       </section>
@@ -294,11 +294,42 @@ export default function AdminDashboardPage() {
               onClick={() => setActiveTab(tab)}
             >
               <span className="tab-icon">
-                {tab === 'overview' && '📊'}
-                {tab === 'users' && '👥'}
-                {tab === 'courses' && '📚'}
-                {tab === 'enrollments' && '📝'}
-                {tab === 'analytics' && '📈'}
+                {tab === 'overview' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="3" width="7" height="7" rx="1"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1"/>
+                  </svg>
+                )}
+                {tab === 'users' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                )}
+                {tab === 'courses' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                  </svg>
+                )}
+                {tab === 'enrollments' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                    <path d="M9 14l2 2 4-4"/>
+                  </svg>
+                )}
+                {tab === 'analytics' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 20V10"/>
+                    <path d="M12 20V4"/>
+                    <path d="M6 20v-6"/>
+                  </svg>
+                )}
               </span>
               <span className="tab-text">{tab.charAt(0).toUpperCase() + tab.slice(1)}</span>
               {activeTab === tab && <span className="tab-indicator"></span>}
@@ -322,7 +353,14 @@ export default function AdminDashboardPage() {
                   <div className="stat-card-animated stat-users" style={{ '--delay': '0.1s' } as React.CSSProperties}>
                     <div className="stat-card-inner">
                       <div className="stat-icon-wrapper gradient-blue">
-                        <span className="stat-icon">👥</span>
+                        <span className="stat-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                          </svg>
+                        </span>
                       </div>
                       <div className="stat-content">
                         <span className="stat-number counter">{stats.overview.totalUsers}</span>
@@ -338,7 +376,12 @@ export default function AdminDashboardPage() {
                   <div className="stat-card-animated stat-courses-admin" style={{ '--delay': '0.2s' } as React.CSSProperties}>
                     <div className="stat-card-inner">
                       <div className="stat-icon-wrapper gradient-purple">
-                        <span className="stat-icon">📚</span>
+                        <span className="stat-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                          </svg>
+                        </span>
                       </div>
                       <div className="stat-content">
                         <span className="stat-number counter">{stats.overview.totalCourses}</span>
@@ -354,7 +397,13 @@ export default function AdminDashboardPage() {
                   <div className="stat-card-animated stat-enrollments" style={{ '--delay': '0.3s' } as React.CSSProperties}>
                     <div className="stat-card-inner">
                       <div className="stat-icon-wrapper gradient-green">
-                        <span className="stat-icon">📝</span>
+                        <span className="stat-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                            <path d="M9 14l2 2 4-4"/>
+                          </svg>
+                        </span>
                       </div>
                       <div className="stat-content">
                         <span className="stat-number counter">{stats.overview.totalEnrollments}</span>
@@ -369,7 +418,12 @@ export default function AdminDashboardPage() {
                   <div className="stat-card-animated stat-revenue-admin highlight" style={{ '--delay': '0.4s' } as React.CSSProperties}>
                     <div className="stat-card-inner">
                       <div className="stat-icon-wrapper gradient-gold">
-                        <span className="stat-icon">💰</span>
+                        <span className="stat-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                          </svg>
+                        </span>
                       </div>
                       <div className="stat-content">
                         <span className="stat-number counter">${stats.overview.totalRevenue}</span>
@@ -387,7 +441,13 @@ export default function AdminDashboardPage() {
               <section className="system-status-section animate-slide-up" style={{ '--delay': '0.3s' } as React.CSSProperties}>
                 <div className="section-header-fancy">
                   <h2>
-                    <span className="section-icon">🖥️</span>
+                    <span className="section-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                      </svg>
+                    </span>
                     System Status
                   </h2>
                 </div>
@@ -429,35 +489,55 @@ export default function AdminDashboardPage() {
               <section className="admin-quick-actions animate-slide-up" style={{ '--delay': '0.4s' } as React.CSSProperties}>
                 <div className="section-header-fancy">
                   <h2>
-                    <span className="section-icon">⚡</span>
+                    <span className="section-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                      </svg>
+                    </span>
                     Quick Actions
                   </h2>
                 </div>
                 <div className="quick-actions-grid-admin">
                   <button className="admin-action-card" onClick={() => setActiveTab('users')}>
                     <div className="action-icon-wrapper blue">
-                      <span>👥</span>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                      </svg>
                     </div>
                     <span className="action-title">Manage Users</span>
                     <span className="action-count">{stats.overview.totalUsers} total</span>
                   </button>
                   <button className="admin-action-card" onClick={() => setActiveTab('courses')}>
                     <div className="action-icon-wrapper purple">
-                      <span>📚</span>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                      </svg>
                     </div>
                     <span className="action-title">Manage Courses</span>
                     <span className="action-count">{stats.overview.totalCourses} total</span>
                   </button>
                   <button className="admin-action-card" onClick={() => setActiveTab('enrollments')}>
                     <div className="action-icon-wrapper green">
-                      <span>📝</span>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                        <path d="M9 14l2 2 4-4"/>
+                      </svg>
                     </div>
                     <span className="action-title">View Enrollments</span>
                     <span className="action-count">{stats.overview.totalEnrollments} total</span>
                   </button>
                   <button className="admin-action-card" onClick={() => setActiveTab('analytics')}>
                     <div className="action-icon-wrapper orange">
-                      <span>📈</span>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M18 20V10"/>
+                        <path d="M12 20V4"/>
+                        <path d="M6 20v-6"/>
+                      </svg>
                     </div>
                     <span className="action-title">Analytics</span>
                     <span className="action-count">View reports</span>
@@ -475,7 +555,14 @@ export default function AdminDashboardPage() {
           <div className="admin-table-section">
             <div className="table-header-fancy">
               <h3>
-                <span className="header-icon">👥</span>
+                <span className="header-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                </span>
                 User Management
               </h3>
               <div className="table-info">
@@ -578,7 +665,12 @@ export default function AdminDashboardPage() {
           <div className="admin-table-section">
             <div className="table-header-fancy">
               <h3>
-                <span className="header-icon">📚</span>
+                <span className="header-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                  </svg>
+                </span>
                 Course Management
               </h3>
               <div className="table-info">
@@ -606,7 +698,7 @@ export default function AdminDashboardPage() {
                           <td>
                             <div className="course-cell">
                               <span className="course-emoji">
-                                {course.category === 'programming' ? '💻' : '📖'}
+                                {course.category === 'programming' ? 'PRG' : 'CRS'}
                               </span>
                               <span className="course-name">{course.title}</span>
                             </div>
@@ -690,7 +782,13 @@ export default function AdminDashboardPage() {
           <div className="admin-table-section">
             <div className="table-header-fancy">
               <h3>
-                <span className="header-icon">📝</span>
+                <span className="header-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                    <path d="M9 14l2 2 4-4"/>
+                  </svg>
+                </span>
                 Enrollment Records
               </h3>
               <div className="table-info">
@@ -778,7 +876,13 @@ export default function AdminDashboardPage() {
           <div className="analytics-section">
             <div className="section-header-fancy">
               <h2>
-                <span className="section-icon">📈</span>
+                <span className="section-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 20V10"/>
+                    <path d="M12 20V4"/>
+                    <path d="M6 20v-6"/>
+                  </svg>
+                </span>
                 Platform Analytics
               </h2>
             </div>
@@ -793,28 +897,50 @@ export default function AdminDashboardPage() {
                 {/* Summary Stats */}
                 <div className="analytics-summary">
                   <div className="analytics-stat-card">
-                    <span className="stat-icon">✅</span>
+                    <span className="stat-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                      </svg>
+                    </span>
                     <div className="stat-info">
                       <span className="stat-value">{analytics.completionRate}%</span>
                       <span className="stat-label">Completion Rate</span>
                     </div>
                   </div>
                   <div className="analytics-stat-card">
-                    <span className="stat-icon">⭐</span>
+                    <span className="stat-icon">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                      </svg>
+                    </span>
                     <div className="stat-info">
                       <span className="stat-value">{analytics.averageRating}</span>
                       <span className="stat-label">Avg. Rating</span>
                     </div>
                   </div>
                   <div className="analytics-stat-card">
-                    <span className="stat-icon">📚</span>
+                    <span className="stat-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                        <line x1="12" y1="11" x2="12" y2="17"/>
+                        <line x1="9" y1="14" x2="15" y2="14"/>
+                      </svg>
+                    </span>
                     <div className="stat-info">
                       <span className="stat-value">{analytics.totalEnrollments}</span>
                       <span className="stat-label">Total Enrollments</span>
                     </div>
                   </div>
                   <div className="analytics-stat-card">
-                    <span className="stat-icon">🎓</span>
+                    <span className="stat-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="9" y1="15" x2="15" y2="15"/>
+                      </svg>
+                    </span>
                     <div className="stat-info">
                       <span className="stat-value">{analytics.completedCourses}</span>
                       <span className="stat-label">Completed Courses</span>
@@ -873,17 +999,17 @@ export default function AdminDashboardPage() {
                       {analytics.categoryDistribution.length > 0 ? (
                         analytics.categoryDistribution.slice(0, 6).map((cat, i) => {
                           const icons: Record<string, string> = {
-                            programming: '💻',
-                            design: '🎨',
-                            business: '💼',
-                            marketing: '📢',
-                            development: '⚙️',
-                            data: '📊',
-                            web: '🌐',
-                            mobile: '📱',
-                            other: '📁',
+                            programming: 'PRG',
+                            design: 'DES',
+                            business: 'BUS',
+                            marketing: 'MKT',
+                            development: 'DEV',
+                            data: 'DAT',
+                            web: 'WEB',
+                            mobile: 'MOB',
+                            other: 'OTH',
                           };
-                          const icon = icons[cat.category.toLowerCase()] || '📂';
+                          const icon = icons[cat.category.toLowerCase()] || 'CRS';
                           return (
                             <div key={i} className="category-item">
                               <span className="category-icon">{icon}</span>
@@ -918,7 +1044,7 @@ export default function AdminDashboardPage() {
         title={`Delete ${deleteTarget?.type === 'user' ? 'User' : 'Course'}`}
       >
         <div className="delete-modal-content-fancy">
-          <div className="delete-icon">⚠️</div>
+          <div className="delete-icon">!</div>
           <p>Are you sure you want to delete this {deleteTarget?.type}?</p>
           <p className="delete-target-name"><strong>{deleteTarget?.name}</strong></p>
           <p className="delete-warning">This action cannot be undone.</p>

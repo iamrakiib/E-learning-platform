@@ -198,8 +198,20 @@ export default function Chatbot({ courseId, lessonId, courseName, lessonName }: 
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         ) : (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            {/* Robot Head */}
+            <rect x="5" y="7" width="14" height="12" rx="3" fill="currentColor"/>
+            {/* Antenna */}
+            <path d="M12 7V4M12 4C12 3.44772 12.4477 3 13 3C13.5523 3 14 3.44772 14 4C14 4.55228 13.5523 5 13 5C12.4477 5 12 4.55228 12 4Z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+            {/* Left Eye */}
+            <circle cx="9" cy="11" r="1.5" fill="#667eea" stroke="white" strokeWidth="0.5"/>
+            {/* Right Eye */}
+            <circle cx="15" cy="11" r="1.5" fill="#667eea" stroke="white" strokeWidth="0.5"/>
+            {/* Mouth */}
+            <rect x="9" y="14" width="6" height="2" rx="1" fill="white" opacity="0.9"/>
+            {/* Ears */}
+            <rect x="3" y="10" width="2" height="4" rx="1" fill="currentColor"/>
+            <rect x="19" y="10" width="2" height="4" rx="1" fill="currentColor"/>
           </svg>
         )}
       </button>
@@ -210,7 +222,7 @@ export default function Chatbot({ courseId, lessonId, courseName, lessonName }: 
           {/* Header */}
           <div className={styles.chatHeader}>
             <div className={styles.headerInfo}>
-              <h3>🤖 AI Assistant</h3>
+              <h3>AI Assistant</h3>
               {courseName && <span className={styles.contextBadge}>{courseName}</span>}
             </div>
             <div className={styles.headerActions}>
@@ -275,7 +287,14 @@ export default function Chatbot({ courseId, lessonId, courseName, lessonName }: 
               <div className={styles.messagesContainer}>
                 {messages.length === 0 ? (
                   <div className={styles.welcomeMessage}>
-                    <div className={styles.welcomeIcon}>🤖</div>
+                    <div className={styles.welcomeIcon}>
+                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/>
+                        <circle cx="8.5" cy="13.5" r="1.5"/>
+                        <circle cx="15.5" cy="13.5" r="1.5"/>
+                        <path d="M9 17h6"/>
+                      </svg>
+                    </div>
                     <h4>Hello! I'm your AI Learning Assistant</h4>
                     <p>
                       {courseId
@@ -302,7 +321,13 @@ export default function Chatbot({ courseId, lessonId, courseName, lessonName }: 
                     >
                       <div className={styles.messageContent}>
                         {msg.role === 'assistant' && (
-                          <span className={styles.botIcon}>🤖</span>
+                          <span className={styles.botIcon}>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/>
+                              <circle cx="8.5" cy="13.5" r="1.5"/>
+                              <circle cx="15.5" cy="13.5" r="1.5"/>
+                            </svg>
+                          </span>
                         )}
                         <div className={styles.messageText}>
                           {msg.content.split('\n').map((line, i) => (
@@ -319,7 +344,13 @@ export default function Chatbot({ courseId, lessonId, courseName, lessonName }: 
                 {isLoading && (
                   <div className={`${styles.message} ${styles.assistant}`}>
                     <div className={styles.messageContent}>
-                      <span className={styles.botIcon}>🤖</span>
+                      <span className={styles.botIcon}>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/>
+                          <circle cx="8.5" cy="13.5" r="1.5"/>
+                          <circle cx="15.5" cy="13.5" r="1.5"/>
+                        </svg>
+                      </span>
                       <div className={styles.typingIndicator}>
                         <span></span>
                         <span></span>
@@ -330,7 +361,7 @@ export default function Chatbot({ courseId, lessonId, courseName, lessonName }: 
                 )}
                 {error && (
                   <div className={styles.errorMessage}>
-                    <span>⚠️ {error}</span>
+                    <span>Error: {error}</span>
                   </div>
                 )}
                 <div ref={messagesEndRef} />
@@ -340,7 +371,7 @@ export default function Chatbot({ courseId, lessonId, courseName, lessonName }: 
               <div className={styles.inputContainer}>
                 {!configured && (
                   <div className={styles.unconfiguredWarning}>
-                    ⚠️ AI is running in demo mode. Configure API keys for full functionality.
+                    Note: AI is running in demo mode. Configure API keys for full functionality.
                   </div>
                 )}
                 <div className={styles.inputWrapper}>

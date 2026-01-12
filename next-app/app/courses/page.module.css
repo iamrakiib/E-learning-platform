@@ -1,0 +1,90 @@
+.main {
+  min-height: calc(100vh - 80px);
+  background: #f8fafc;
+}
+
+.header {
+  position: relative;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #0070f3 0%, #7928ca 100%);
+  overflow: hidden;
+}
+
+.headerBackground {
+  position: absolute;
+  inset: 0;
+}
+
+.shape1,
+.shape2 {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.shape1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -50px;
+}
+
+.shape2 {
+  width: 200px;
+  height: 200px;
+  bottom: -100px;
+  left: -50px;
+}
+
+.headerContent {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+.eyebrow {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.coursesSection {
+  padding: 3rem 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: 3rem 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .coursesSection {
+    padding: 2rem 1rem;
+  }
+}
